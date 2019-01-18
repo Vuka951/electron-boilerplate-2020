@@ -7,6 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const glob = require('glob');
 const path = require('path');
+require('dotenv').config();
 
 const PATHS = {
   src: path.join(__dirname, 'src'),
@@ -17,7 +18,7 @@ module.exports = {
   output: {
     path: __dirname + '/web-build',
     filename: '[name].[hash].js',
-    publicPath: './',
+    publicPath: `${process.env.ENV==='TEST' ? '/' : './'}`,
   },
   module: {
     rules: [
@@ -62,7 +63,7 @@ module.exports = {
     },
   },
   plugins: [
-    new CleanWebpackPlugin('web-build', {} ),
+    new CleanWebpackPlugin(['web-build', 'dist'], {} ),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
