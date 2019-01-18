@@ -1,18 +1,21 @@
-let sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database('./database.sqlite3');
+const express = require('express');
+const cors = require('cors');
+const app = express();
+let sqlite = require('sqlite3');
+const path = require('path');
+const dbPath = path.resolve(__dirname, 'database.db');
+let db = new sqlite.Database(dbPath);
 
-db.serialize(function() {
-  db.run('CREATE TABLE lorem (info TEXT)');
+app.use(cors());
 
-  let stmt = db.prepare('INSERT INTO lorem VALUES (?)');
-  for (let i = 0; i < 10; i++) {
-    stmt.run('Ipsum ' + i);
-  }
-  stmt.finalize();
-
-  db.each('SELECT rowid AS id, info FROM lorem', function(err, row) {
-    console.log(row.id + ': ' + row.info);
+app.get('/', (req, res) => {
+  db.serialize(function() {
+    db.all('SELECT * FROM lorem', function(err, rows) {
+      res.send(rows);
+    });
   });
 });
 
-db.close();
+app.listen(3000, function() {
+  console.log('Running for my life on :3000');
+});

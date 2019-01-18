@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = require('electron');
 const path = require('path');
 const url = require('url');
 const isDev = require('electron-is-dev');
@@ -12,8 +12,8 @@ function createWindow() {
     protocol: 'file',
     slashes: true,
   }));
-
-  let server = require('./server');
+  // Express server set up
+  let server = require('./server.js');
 
   mainWindow.on('closed', () => mainWindow = null);
   mainWindow.webContents.openDevTools();

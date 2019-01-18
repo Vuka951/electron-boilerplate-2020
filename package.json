@@ -15,10 +15,11 @@
     "lint": "eslint src"
   },
   "build": {
+    "asar": false,
     "appId": "TheAPPThing",
     "files": [
       "web-build/**/*",
-      "./public/main.js"
+      "./public/**/*"
     ],
     "directories": {
       "buildResources": "assets"
@@ -68,9 +69,13 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.6.1",
+    "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
+    "cors": "^2.8.5",
     "electron-is-dev": "^1.0.1",
+    "express": "^4.16.4",
     "jquery": "^3.3.1",
+    "knex": "^0.16.3",
     "popper.js": "^1.14.6",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
