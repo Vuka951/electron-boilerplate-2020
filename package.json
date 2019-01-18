@@ -11,6 +11,7 @@
     "electron-dev": "concurrently \"npm start\" \"wait-on http-get://localhost:8080 && npm run electron-start\"",
     "preelectron-pack": "npm run build",
     "electron-pack": "electron-builder -c.extraMetadata.main=public/main.js",
+    "postinstall": "install-app-deps",
     "lint": "eslint src"
   },
   "build": {
@@ -77,6 +78,7 @@
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sqlite3": "^4.0.6"
   }
 }

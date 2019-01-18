@@ -12,6 +12,9 @@ function createWindow() {
     protocol: 'file',
     slashes: true,
   }));
+
+  let server = require('./server');
+
   mainWindow.on('closed', () => mainWindow = null);
   mainWindow.webContents.openDevTools();
 }
