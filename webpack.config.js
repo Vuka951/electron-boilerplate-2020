@@ -15,9 +15,9 @@ const PATHS = {
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: __dirname + '/dist',
+    path: __dirname + '/web-build',
     filename: '[name].[hash].js',
-    publicPath: '/',
+    publicPath: './',
   },
   module: {
     rules: [
@@ -42,10 +42,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         use: [
           {
-            loader: 'file-loader',
-            options: {
-              outputPath: 'images/',
-            },
+            loader: 'url-loader',
           },
         ],
       },
@@ -53,12 +50,7 @@ module.exports = {
         test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
         exclude: /images/,
         use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts/',
-            publicPath: '../fonts/',
-          },
+          loader: 'url-loader',
         }],
       },
     ],
@@ -70,7 +62,7 @@ module.exports = {
     },
   },
   plugins: [
-    new CleanWebpackPlugin('dist', {} ),
+    new CleanWebpackPlugin('web-build', {} ),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
@@ -89,7 +81,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
-    contentBase: './dist',
+    contentBase: './web-build',
     hot: true,
     historyApiFallback: true,
   },

@@ -1,7 +1,4 @@
-const electron = require('electron');
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
-
+const {app, BrowserWindow} = require('electron')
 const path = require('path');
 const url = require('url');
 const isDev = require('electron-is-dev');
@@ -10,8 +7,13 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({width: 900, height: 680});
-  mainWindow.loadURL(isDev ? 'http://localhost:8080' : `file://${path.join(__dirname, '../dist/index.html')}`);
+  mainWindow.loadURL(isDev ? 'http://localhost:8080' : url.format({
+    pathname: path.join(__dirname, '../web-build/index.html'),
+    protocol: 'file',
+    slashes: true,
+  }));
   mainWindow.on('closed', () => mainWindow = null);
+  mainWindow.webContents.openDevTools();
 }
 
 app.on('ready', createWindow);
