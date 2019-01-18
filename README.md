@@ -13,3 +13,4 @@
 <li>With Electron: npm run electron-dev</li>
 <li>to package: npm run electron-pack</li>
 </ul>
+<h3>Note: Change the .env values to PROD when packaging</h3>
