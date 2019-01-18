@@ -13,7 +13,8 @@ function createWindow() {
     slashes: true,
   }));
   // Express server set up
-  let server = require('./server.js');
+  let server;
+  isDev ? server = null : server = require(path.join(__dirname, '../server-build/bundle-back.js'));
 
   mainWindow.on('closed', () => mainWindow = null);
   mainWindow.webContents.openDevTools();

@@ -10,11 +10,11 @@ const path = require('path');
 require('dotenv').config();
 
 const PATHS = {
-  src: path.join(__dirname, 'src'),
+  src: path.join(__dirname, 'webapp'),
 };
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './webapp/index.js',
   output: {
     path: __dirname + '/web-build',
     filename: '[name].[hash].js',
@@ -77,7 +77,7 @@ module.exports = {
       paths: glob.sync(`${PATHS.src}/**/*`, {nodir: true}), whitelistPatterns: [/collaps/, /dropdown/, /show/],
     }),
     new HtmlWebPackPlugin({
-      template: './src/index.html',
+      template: './webapp/index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],

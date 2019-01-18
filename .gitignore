@@ -3,7 +3,6 @@
 # dependencies
 /node_modules
 /.vscode
-/web-build
 
 # testing
 /coverage
@@ -11,6 +10,8 @@
 # production
 /build
 /dist
+/web-build
+/server-build
 # misc
 .DS_Store
 .env.local
