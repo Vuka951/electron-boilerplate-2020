@@ -9,10 +9,9 @@ import postEx from './routes/postEx';
 import putEx from './routes/putEx';
 import deleteEx from './routes/deleteEx';
 // DB set up
-const __parentDir = path.dirname(process.mainModule.filename);
-const dbPath = path.resolve(__parentDir, '../public/database.db');
+const dbPath = path.resolve(__dirname, 'database.db');
 export let db = new sqlite.Database(dbPath);
-
+console.log(dbPath);
 const app = express();
 
 app.use(cors());
