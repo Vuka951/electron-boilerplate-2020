@@ -4,10 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 module.exports = {
   target: 'node',
-  node: {
-    __dirname: false,
-    __filename: false,
-  },
+  node: false,
   externals: [nodeExternals()],
   entry: {
     app: ['./server/index.js'],

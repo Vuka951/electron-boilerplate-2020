@@ -9,7 +9,7 @@ import postEx from './routes/postEx';
 import putEx from './routes/putEx';
 import deleteEx from './routes/deleteEx';
 // DB set up
-const dbPath = path.resolve(__dirname, 'database.db');
+const dbPath = path.resolve(__dirname, '../public/database.db');
 export let db = new sqlite.Database(dbPath);
 console.log(dbPath);
 const app = express();
