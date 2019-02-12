@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom';
 import {IntlProvider} from 'react-intl';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -16,8 +16,11 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Navbar/>
-            <Route exact path='/' component={HomePage}/>
-            <Route exact path='/about' component={AboutPage}/>
+            <Switch>
+              <Route exact path='/' component={HomePage}/>
+              <Route exact path='/about' component={AboutPage}/>
+              <Redirect from="*" to={'/'} />
+            </Switch>
           </div>
         </BrowserRouter>
       </IntlProvider>
