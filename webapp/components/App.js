@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom';
+import {HashRouter, Route, Redirect, Switch} from 'react-router-dom';
 import {IntlProvider} from 'react-intl';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -13,7 +13,7 @@ class App extends Component {
     const {lang} = this.props;
     return (
       <IntlProvider locale={lang} messages={messages[lang]}>
-        <BrowserRouter>
+        <HashRouter>
           <div>
             <Navbar/>
             <Switch>
@@ -22,7 +22,7 @@ class App extends Component {
               <Redirect from="*" to={'/'} />
             </Switch>
           </div>
-        </BrowserRouter>
+        </HashRouter>
       </IntlProvider>
     );
   }

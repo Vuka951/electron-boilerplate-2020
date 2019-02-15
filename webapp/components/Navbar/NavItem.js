@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 const NavItem = (props) => {
-  const pageURI = window.location.pathname+window.location.search;
+  const pageURI = window.location.hash.substr(1);
   const liClassName = (props.path === pageURI) ? 'nav-item active' : 'nav-item';
   const aClassName = props.disabled ? 'nav-link disabled' : 'nav-link';
   return (

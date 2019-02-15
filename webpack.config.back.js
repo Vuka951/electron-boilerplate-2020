@@ -2,6 +2,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
+const Dotenv = require('dotenv-webpack');
 module.exports = {
   target: 'node',
   node: false,
@@ -23,6 +24,7 @@ module.exports = {
     ]},
   plugins: [
     new CleanWebpackPlugin('server-build', {} ),
+    new Dotenv(),
   ],
   optimization: {
     splitChunks: {
