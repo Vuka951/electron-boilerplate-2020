@@ -23,26 +23,15 @@ module.exports = {
       },
     ]},
   plugins: [
-    new CleanWebpackPlugin('server-build', {} ),
+    new CleanWebpackPlugin(['server-build', 'dist'], {} ),
     new Dotenv(),
   ],
   optimization: {
-    splitChunks: {
-      cacheGroups: {
-        default: false,
-        vendors: false,
-        // vendors chunk
-        vendor: {
-          chunks: 'all',
-          test: /node_modules/,
-        },
-      },
-    },
     minimizer: [
       new TerserPlugin({
         cache: true,
         parallel: true,
-        extractComments: 'all',
+        extractComments: true,
         test: /\.js(\?.*)?$/i,
         exclude: /\/node_modules/,
       }),

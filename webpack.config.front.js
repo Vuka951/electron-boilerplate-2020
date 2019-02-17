@@ -71,7 +71,7 @@ module.exports = {
     },
   },
   plugins: [
-    new CleanWebpackPlugin(['web-build', 'dist'], {} ),
+    new CleanWebpackPlugin(['web-build'], {} ),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
@@ -110,7 +110,7 @@ module.exports = {
       new TerserPlugin({
         cache: true,
         parallel: true,
-        extractComments: 'all',
+        extractComments: true,
         test: /\.js(\?.*)?$/i,
         exclude: /\/node_modules/,
       }),

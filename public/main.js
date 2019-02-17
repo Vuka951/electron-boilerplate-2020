@@ -13,6 +13,7 @@ function createWindow() {
     slashes: true,
   }));
   // Express server set up
+  // eslint-disable-next-line no-unused-vars
   let server;
   isDev ? server = null : server = require(path.join(__dirname, '../server-build/bundle-back.js'));
 
