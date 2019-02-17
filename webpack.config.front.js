@@ -43,7 +43,10 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images/',
+            },
           },
         ],
       },
@@ -51,7 +54,12 @@ module.exports = {
         test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
         exclude: /images/,
         use: [{
-          loader: 'url-loader',
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/',
+            publicPath: '../fonts/',
+          },
         }],
       },
     ],
@@ -102,7 +110,6 @@ module.exports = {
       new TerserPlugin({
         cache: true,
         parallel: true,
-        extractComments: 'all',
         test: /\.js(\?.*)?$/i,
         exclude: /\/node_modules/,
       }),
