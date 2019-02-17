@@ -13,7 +13,7 @@
     "preelectron-pack": "npm run build-front && npm run build-back",
     "electron-pack": "electron-builder -c.extraMetadata.main=public/main.js",
     "postinstall": "electron-builder install-app-deps",
-    "lint": "eslint src"
+    "lint": "eslint webapp"
   },
   "build": {
     "asar": true,

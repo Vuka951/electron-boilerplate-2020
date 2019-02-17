@@ -110,6 +110,7 @@ module.exports = {
       new TerserPlugin({
         cache: true,
         parallel: true,
+        extractComments: 'all',
         test: /\.js(\?.*)?$/i,
         exclude: /\/node_modules/,
       }),
