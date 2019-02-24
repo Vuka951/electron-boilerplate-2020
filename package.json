@@ -1,7 +1,7 @@
 {
-  "name": "minimal-react-boilerplate",
+  "name": "electron-boilerplate",
   "version": "1.0.0",
-  "description": "Minimal React Boilerplate",
+  "description": "Electron Boilerplate",
   "main": "public/main.js",
   "scripts": {
     "start-front": "webpack-dev-server --config ./webpack.config.front.js --mode development",
