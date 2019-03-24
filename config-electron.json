@@ -1,0 +1,12 @@
+{
+    "asar": true,
+    "appId": "TheAPPThing",
+    "files": [
+      "web-build/**/*",
+      "server-build/bundle-back.js",
+      "public/main.js"
+    ],
+    "extraResources": [
+      "database.db"
+    ]
+}
