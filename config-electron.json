@@ -1,6 +1,8 @@
 {
     "asar": true,
-    "appId": "TheAPPThing",
+    "appId": "com.electron.theappname",
+    "productName": "TheNiceAppName",
+    "copyright": "Copyright © year Vuka",
     "files": [
       "web-build/**/*",
       "server-build/bundle-back.js",
